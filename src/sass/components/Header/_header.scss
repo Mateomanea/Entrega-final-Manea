@@ -1,0 +1,24 @@
+.header {
+    width: 100%;
+    height: 10rem;
+    color: $c-soft-white;
+    background-color: $c-soft-black;
+    box-shadow: 0 .2rem 1.5rem 0px $c-soft-black;
+    place-content: center;
+
+    & .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        @include flexBox(flex,row,space-between,center)
+    }
+
+    &__title {
+        color: $c-soft-white;
+        font-size: 4rem;
+        font-weight: bold;
+        margin: 0 .2rem;
+        cursor: pointer;
+        text-shadow: 5px 6px 5px #000, 0px 0px 8px #ffffffbd, 0px 0px 80px $c-button-blue;
+    }
+}

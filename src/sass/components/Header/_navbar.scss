@@ -1,0 +1,42 @@
+.navbar {
+    width: 100%;
+    @include flexBox (flex, row, space-between, center);
+    padding: 1rem;
+    
+    &__list {
+        display: flex;
+    }
+
+    &__link {
+        font-size: 1.6rem;
+        color: $c-soft-white;
+        padding: 1rem 2rem;
+        letter-spacing: 0.5px;
+        transition: color .3s ease-in-out;
+
+        &:hover:not(&--cart) {
+            color: $c-button-blue;
+        }
+
+        &--icon {
+            font-size: 1.3rem;
+            margin-left: .5rem;
+            position: relative;
+        }
+
+        &--cart {
+            color: $c-soft-white;
+            background-color: $c-button-blue;
+            border-radius: .2rem;
+            transition: background-color .3s ease-in-out ;
+
+            &:hover {
+                background-color: #0074f1;
+            }
+        }
+
+        &--cartCount {
+            margin-left: .5rem;
+        }
+    }
+}

@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100dvh;
+    font-family: $font-main;
+    background-color: $c-soft-gray;
+    line-height: 1.45;
+}
+
+h1, h2, h3, h4, h5 {
+    text-wrap: balance;
+}
+
+p {
+    font-size: 1.4rem;
+    letter-spacing: 1.03px;
+    text-wrap: pretty;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, ol {
+    list-style-type: none;
+}
+
+button {
+    outline: none;
+    cursor: pointer;
+}
+
+img, figure {
+    width: 100%;
+    max-width: 100%;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}

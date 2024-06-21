@@ -1,0 +1,99 @@
+.home {
+    @include flexBox(flex,column,center,center);
+
+    &__title {
+        color: $c-button-orange;
+        font-size: 2.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        padding: 4rem 0;
+    }
+
+    .filters {
+        border: 1px solid;
+        padding: 2rem;
+        width: 70%;
+    }
+
+
+    .products-list {
+        width: 70%;
+        height: 100%;
+        margin: 0 auto;
+        @include flexBox(flex, row, space-between, center);
+        flex-wrap: wrap;
+    
+        .card {
+            width: 270px;
+            margin: 1rem 0.1rem;
+            overflow: hidden;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 1.5rem;
+            box-shadow: 0 0 7px rgba(0, 0, 0, .8);
+
+            &:hover {
+                transition: all .4s ease-in-out;
+                box-shadow: 0 0 10px 0px rgba(0, 0, 0, 0.914);
+            }
+    
+            &:hover .card__data .card__title {
+                transition: all .3s ease-in-out;
+                color: #0084ffea;
+            }
+    
+            &__imgContainer {
+                width: 230px;
+                aspect-ratio: 4 / 3;
+                margin: 1rem auto;
+                @include FlexCenter;
+                
+                & img {
+                    width: 100%;
+                    max-height: 200px;
+    
+                    &:hover {
+                        transition: all .3s ease-in-out;
+                        transform: scale(1.1);
+                    }
+                }
+            }
+    
+            &__data {
+                & .card__title {
+                    font-size: 1.8rem;
+                    font-weight: 500;
+                    padding: 0 2.5rem;
+                    margin-bottom: 1rem;
+                }
+    
+                & .card__price {
+                    font-size: 2rem;
+                }
+            }
+    
+            &__btn {
+                width: 100%;
+    
+                & .btn {
+                    width: 100%;
+                    padding: 1rem;
+                    margin-top: 1rem;
+                    font-size: 1.8rem;
+                    font-weight: bold;
+                    border-radius: 0 0 1.5rem 1.5rem;
+                    border: none;
+                    color: $c-soft-white;
+                    background-color: $c-button-blue;
+                    transition: background-color .3s ease-in-out;
+    
+                    &:hover {
+                        background-color: #0067d5;
+                    }
+                }
+            }
+        }
+    }
+}
+
