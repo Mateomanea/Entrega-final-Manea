@@ -1,0 +1,79 @@
+.detail-container {
+    width: 50%;
+    margin: 10rem auto;
+    padding: 2rem 1rem;
+    @include FlexCenter;
+    background-color: $c-soft-white;
+    box-shadow: 0 0 2rem .2rem #00000098;
+    border: 2px solid #000;
+    border-radius: .5rem;
+
+    & .detail-top {
+        width: 100%;
+        height: auto;
+        @include FlexCenter;
+
+        &__left {
+            width: 30%;
+        }
+
+        &__right {
+            width: 100%;
+            @include flexBox(flex, column, center, center);
+
+            & .detail__title {
+                font-size: 2.8rem;
+                margin: 1rem 0;
+            }
+
+            & .detail__description {
+                font-size: 1.8rem;
+                font-weight: 300;
+            }
+
+            & .detail__price {
+                font-size: 2.8rem;
+                font-weight: bold;
+                margin: 2rem 0;
+            }
+
+            & .detail__label {
+                font-size: 1.4rem;
+                font-weight: 400;
+            }
+
+            & .detail__input {
+                @include FlexCenter;
+                height: 4rem;
+                width: 12rem;
+                outline: none;
+                border: 3px solid $c-button-orange;
+                border-radius: .5rem;
+                text-align: center;
+                font-size: 2rem;
+                font-weight: bold;
+            }
+        }
+    }
+
+    & .detail-bottom {
+        margin-top: 5rem;
+
+        & .btn {
+            border: none;
+            width: 100%;
+            padding: 1.5rem ;
+            color: $c-soft-white;
+            font-size: 2.20rem;
+            font-weight: bold;
+            background-color: $c-button-orange;
+            border-radius: .5rem;
+            transition: all .3s ease-in-out;
+
+            &:hover {
+                background-color: #fa4d26;
+                box-shadow: 0px 0px 10px #ff5733;
+            }
+        }
+    }
+}

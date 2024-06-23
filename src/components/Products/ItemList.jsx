@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Card = ({ item, onClick }) => {
+export const ItemList = ({ item, onClick }) => {
 
 
     return (

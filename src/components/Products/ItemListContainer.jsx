@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getDocs, collection } from "firebase/firestore";
 import { db } from "../../firebase/config";
 import { useNavigate } from "react-router-dom";
-import { Card } from "./Card";
+import { ItemList } from "./ItemList";
 
 const ItemListContainer = () => {
     const [ data, setData ] = useState([])
@@ -38,7 +38,7 @@ const ItemListContainer = () => {
             <div className="products-list">
                 {data.length > 0 ? (
                     data.map(item => (
-                        <Card 
+                        <ItemList 
                             key={item.id} 
                             item={item} 
                             onClick={() => navigate(`/item/${item.id}`)}

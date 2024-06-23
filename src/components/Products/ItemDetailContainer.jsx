@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
+import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = () => {
     const { id } = useParams();
@@ -30,7 +31,7 @@ const ItemDetailContainer = () => {
     }, [id]);
 
     const handleAddToCart = () => {
-
+        //agregarr la Fncion
         console.log(`Agregado al carrito: ${item.name} - Cantidad: ${cantidad}`);
     };
 
@@ -43,22 +44,16 @@ const ItemDetailContainer = () => {
     }
 
     return (
-        <div className="item-detail">
-            <img src={item.image} alt={item.name} />
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
-            <p>Precio: ${item.price}</p>
-            <label htmlFor="cantidad">Cantidad:</label>
-            <input
-                type="number"
-                id="cantidad"
-                name="cantidad"
-                min="1"
-                value={cantidad}
-                onChange={handleCantidad}
+
+        <div className="detail-container">
+            <ItemDetail
+                item={item}
+                cantidad={cantidad}
+                handleCantidad={handleCantidad}
+                handleAddToCart={handleAddToCart}
             />
-            <button onClick={handleAddToCart}>Agregar al carrito</button>
         </div>
+        
     );
 };
 
