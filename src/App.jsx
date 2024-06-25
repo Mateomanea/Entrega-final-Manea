@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import ItemListContainer from './components/Products/ItemListContainer';
 import ItemDetailContainer from './components/Products/ItemDetailContainer';
 import Checkout  from './components/Checkout/Checkout';
+import { CartProvider  } from './components/Checkout/CartContex';
 
 //Sass
 import './sass/index.scss';
@@ -10,6 +11,7 @@ import './sass/index.scss';
 function App() {
 
   return (
+    <CartProvider>
       <BrowserRouter>
         <Header />
         <Routes>
@@ -18,6 +20,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </BrowserRouter>
+    </CartProvider>  
   );
 
 }

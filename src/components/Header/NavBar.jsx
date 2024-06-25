@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import CartWidget from './CartWidget';
 import Search from './Search'
+import { CartContext } from '../Checkout/CartContex';
 
 const Navbar = () => {
 
     const [searchActive, setSearchActive] = useState(false);
+    const { cart } = useContext(CartContext);
+    const cartCount = cart.reduce((acc, item) => acc + item.cantidad, 0)
 
     const handleSearchToggle = () => {
         setSearchActive(!searchActive);
@@ -33,8 +36,8 @@ const Navbar = () => {
                     </li>
                     <li><Link className='navbar__link' to="#">Login</Link></li>
                     <li>
-                        <Link className='navbar__link navbar__link--cart' to="#">
-                            <CartWidget />
+                        <Link className='navbar__link navbar__link--cart' to="/checkout">
+                            <CartWidget cartCount={cartCount} />
                         </Link>
                     </li>
                 </ul>

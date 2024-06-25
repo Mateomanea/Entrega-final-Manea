@@ -1,7 +1,16 @@
-const CartWidget = () => {
+import React from "react";
+
+const CartWidget = ({ cartCount }) => {
     return (
         <>
-            <i className="cart bi bi-bag"><span className='navbar__link--cartCount'>2</span></i>
+            <i className="cart bi bi-bag">
+                {
+                    cartCount > 0 && 
+                    <span className='navbar__link--cartCount'>
+                        { cartCount }
+                    </span>
+                }
+            </i>
         </>
     )
 }

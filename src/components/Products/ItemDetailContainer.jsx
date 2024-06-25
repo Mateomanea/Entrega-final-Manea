@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase/config';
 import ItemDetail from './ItemDetail';
+import { CartContext } from '../Checkout/CartContex';
 
 const ItemDetailContainer = () => {
     const { id } = useParams();
     const [item, setItem] = useState(null);
     const [cantidad, setCantidad] = useState(1);
+    const { addToCart } = useContext(CartContext)
 
     useEffect(() => {
 
@@ -27,12 +29,12 @@ const ItemDetailContainer = () => {
     };
     
   
-      fetchItem();
+        fetchItem();
+
     }, [id]);
 
     const handleAddToCart = () => {
-        //agregarr la Fncion
-        console.log(`Agregado al carrito: ${item.name} - Cantidad: ${cantidad}`);
+        addToCart(item, cantidad);
     };
 
     const handleCantidad = (e) => {
