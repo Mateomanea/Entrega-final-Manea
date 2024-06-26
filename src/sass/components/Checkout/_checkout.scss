@@ -1,0 +1,88 @@
+.checkout {
+    @include flexBox (flex, column, center, center);
+
+    &__subtitle {
+        margin: 5rem 0;
+        font-size: 2.8rem;
+    }
+
+    &__itemContainer {
+        width: 70%;
+        padding: 1rem;
+        @include flexBox (flex, column, center, center);
+    }
+
+    &__item {
+        border: 1px solid #000000a6;
+        background-color: #fff;
+        min-width: 60rem;
+        height: 15rem;
+        padding: .5rem 1rem;
+        margin: .5rem 0;
+        @include flexBox (flex, row, space-around, center);
+        border-radius: .5rem;
+        position: relative;
+    }
+
+    &__img {
+        max-width: 100px;
+        margin: 0 1rem;
+    }
+
+    &__btnRemove {
+        background-color: $c-button-orange;
+        color: $c-soft-white;
+        padding: .2rem .5rem;
+        border: none;
+        border-radius: 50%;
+        position: absolute;
+        top: -.9rem;
+        right: 1.5rem;
+    }
+
+    &__title {
+        font-size: 1.8rem;
+    }
+
+    &__priceAmount {
+        font-size: 1.6rem;
+        font-weight: 500;
+        margin: 0 1rem;
+    }
+
+    &__priceTotal {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding: .5rem 4rem;
+        margin: 1rem 0;
+        font-size: 2rem;
+        font-weight: bold;
+    }
+
+    &__btn {
+        width: 90%;
+        padding: .5rem;
+
+        & .btn {
+            width: 100%;
+            height: 5rem;
+            color: $c-soft-white;
+            background-color: $c-button-blue;
+            font-weight: bold;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            border-radius: .5rem;
+
+            &:hover {
+                background-color: #0067d5;
+            }
+        }
+    }
+
+    &__carritoVacio {
+        font-size: 5rem;
+    }
+}

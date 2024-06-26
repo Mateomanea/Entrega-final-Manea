@@ -5,7 +5,7 @@
     @include FlexCenter;
     background-color: $c-soft-white;
     box-shadow: 0 0 2rem .2rem #00000098;
-    border: 2px solid #000;
+    border: .2px solid #000;
     border-radius: .5rem;
 
     & .detail-top {
@@ -47,7 +47,7 @@
                 height: 4rem;
                 width: 12rem;
                 outline: none;
-                border: 3px solid $c-button-orange;
+                border: 1.5px solid $c-button-orange;
                 border-radius: .5rem;
                 text-align: center;
                 font-size: 2rem;

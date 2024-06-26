@@ -12,12 +12,13 @@ const Checkout = () => {
 
   return (
     <div className="checkout">
-      <h2>Carrito de Compras</h2>
+      <h2 className='checkout__subtitle'>Carrito de Compras</h2>
+      <div className="checkout__itemContainer">
         {cart.length === 0 ? (
-            <p>El carrito está vacío.</p>
+            <p className='checkout__carritoVacio'>El carrito está vacío.</p>
         ) : (
               cart.map(item => (
-                  <div key={item.id} className="checkout__item">
+                  <li key={item.id} className="checkout__item">
                       <img  className="checkout__img"
                         src={item.image} 
                         alt={item.name}  
@@ -27,17 +28,28 @@ const Checkout = () => {
                             <h3 className='checkout__title'>{item.name}</h3>
                             <p className='checkout__amount'>Cantidad: {item.cantidad}</p>
                             <p className='checkout__price'>Precio: ${item.price}</p>
-                            <p className='checkout__priceAmout'>
-                              Total: ${item.price * item.cantidad}
-                            </p>
-                            <button onClick={() => removerItem(item.id)}>
-                              Quitar
+                            
+                            <button className='checkout__btnRemove' onClick={() => removerItem(item.id)}>
+                              <i class="fa-solid fa-xmark"></i>
                             </button>
                       </div>
-                  </div>
+
+                      <p className='checkout__priceAmount'>
+                        Total: ${item.price * item.cantidad}
+                      </p>
+                  </li>
                 ))
             )}
-            <h3 className='checkout__priceTotal'>Precio Total: ${precioTotal}</h3>
+            <h3 className='checkout__priceTotal'>
+              Total: ${precioTotal}
+            </h3>
+
+            <div className="checkout__btn">
+              <button className='btn'>
+                Comprar ahora
+              </button>
+            </div>
+      </div>      
     </div>
   )
 }

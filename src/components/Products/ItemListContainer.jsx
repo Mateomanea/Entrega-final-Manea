@@ -45,7 +45,7 @@ const ItemListContainer = () => {
                         />
                     ))
                 ) : (
-                    <p>No hay productos disponibles.</p>
+                    <p>Cargando todos los productos...</p>
                 )}
             </div>
         </div>
