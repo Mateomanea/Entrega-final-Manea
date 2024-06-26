@@ -30,7 +30,7 @@ const Checkout = () => {
                             <p className='checkout__price'>Precio: ${item.price}</p>
                             
                             <button className='checkout__btnRemove' onClick={() => removerItem(item.id)}>
-                              <i class="fa-solid fa-xmark"></i>
+                              <i className="fa-solid fa-xmark"></i>
                             </button>
                       </div>
 
