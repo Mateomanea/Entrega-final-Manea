@@ -8,6 +8,7 @@ const ItemListContainer = () => {
     const [ data, setData ] = useState([])
     const navigate = useNavigate();
     const [filtroCategoria, setFiltroCategoria] = useState('');
+    const [loading, setLoading] = useState(true);
 
 
     useEffect(() => {
@@ -17,11 +18,15 @@ const ItemListContainer = () => {
 
                 const obtenerDocumentos = querySnapshot.docs.map( element => ({
                     id: element.id, ...element.data()
-                }))
-                setData(obtenerDocumentos)
+                }));
+
+                setTimeout(() => {
+                    setData(obtenerDocumentos)
+                    setLoading(false)
+                }, 500)
 
             } catch ( error ) {
-                console.error('Error en documentos: ',error);
+                setLoading(false)
             }
         }
 
@@ -48,29 +53,44 @@ const ItemListContainer = () => {
                 <h2 className="home__title">Lista de productos</h2>
 
             <div className="filters">
-                <label htmlFor="filtroCategoria">Categoría:</label>
-                <select id="filtroCategoria" value={filtroCategoria} onChange={handleFiltroCategoria}>
+                <label className="filters__label" htmlFor="filtroCategoria">Categoría:</label>
+                <select className="filters__select" id="filtroCategoria" value={filtroCategoria} onChange={handleFiltroCategoria}>
 
-                    <option value="">Todas</option>
-                    <option value="Adobe">Adobe</option>
-                    <option value="Antivirus">Antivirus</option>
-                    <option value="Música">Daw</option>
-                    <option value="Diseño">Diseño</option>
+                    <option className="filters__option" value="">Todas</option>
+                    <option className="filters__option" value="Adobe">Adobe</option>
+                    <option className="filters__option" value="Antivirus">Antivirus</option>
+                    <option className="filters__option" value="Música">Daw</option>
+                    <option className="filters__option" value="Diseño">Diseño</option>
 
                 </select>
             </div>
 
             <div className="products-list">
-                {productosFiltrados.length > 0 ? (
+                { loading ? (
+                    <div className="spinner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                ) : ( productosFiltrados.length > 0 ? (
                     productosFiltrados.map(item => (
                         <ItemList 
-                            key={item.id} 
-                            item={item} 
-                            onClick={() => navigate(`/item/${item.id}`)}
+                                key={item.id} 
+                                item={item} 
+                                onClick={() => navigate(`/item/${item.id}`)}
                         />
                     ))
                 ) : (
-                    <p>Cargando todos los productos...</p>
+                    <p>No hay productos disponibles</p>
+                )
+
                 )}
             </div>
 
