@@ -7,6 +7,7 @@ import { ItemList } from "./ItemList";
 const ItemListContainer = () => {
     const [ data, setData ] = useState([])
     const navigate = useNavigate();
+    const [filtroCategoria, setFiltroCategoria] = useState('');
 
 
     useEffect(() => {
@@ -28,16 +29,40 @@ const ItemListContainer = () => {
 
     }, [])
 
+    const handleFiltroCategoria = (e) => {
+        setFiltroCategoria(e.target.value);
+    }
+
+    const filtrarProductos = () => {
+        return data.filter(producto => {
+            return filtroCategoria ? producto.category === filtroCategoria : true;
+        })
+    }
+
+    const productosFiltrados = filtrarProductos();
+
     return (
 
         <div className="home">
+
                 <h2 className="home__title">Lista de productos</h2>
+
             <div className="filters">
-                <p>Aca los filtros</p>
+                <label htmlFor="filtroCategoria">Categoría:</label>
+                <select id="filtroCategoria" value={filtroCategoria} onChange={handleFiltroCategoria}>
+
+                    <option value="">Todas</option>
+                    <option value="Adobe">Adobe</option>
+                    <option value="Antivirus">Antivirus</option>
+                    <option value="Música">Daw</option>
+                    <option value="Diseño">Diseño</option>
+
+                </select>
             </div>
+
             <div className="products-list">
-                {data.length > 0 ? (
-                    data.map(item => (
+                {productosFiltrados.length > 0 ? (
+                    productosFiltrados.map(item => (
                         <ItemList 
                             key={item.id} 
                             item={item} 
@@ -48,6 +73,7 @@ const ItemListContainer = () => {
                     <p>Cargando todos los productos...</p>
                 )}
             </div>
+
         </div>
         )
         
