@@ -2,6 +2,7 @@
     @include flexBox (flex, column, center, center);
 
     &__subtitle {
+        color: $c-button-orange;
         margin: 5rem 0;
         font-size: 2.8rem;
     }

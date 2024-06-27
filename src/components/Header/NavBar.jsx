@@ -26,7 +26,6 @@ const Navbar = () => {
                 <ul className='navbar__list'>
                     <li>
                         <Link className='navbar__link' to="#" onClick={handleSearchToggle}>
-                            Buscar
                             <i className={`navbar__link--icon fa-solid 
                             ${searchActive ? 'fa-xmark' : 'fa-magnifying-glass'}`}
                             >
@@ -34,7 +33,7 @@ const Navbar = () => {
                         </Link>
                         {searchActive && <Search />}
                     </li>
-                    <li><Link className='navbar__link' to="#">Login</Link></li>
+
                     <li>
                         <Link className='navbar__link navbar__link--cart' to="/checkout">
                             <CartWidget cartCount={cartCount} />

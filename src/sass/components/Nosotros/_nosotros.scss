@@ -1,0 +1,41 @@
+.nosotros {
+    width: 70%;
+    margin: 2rem auto;
+    padding: 1rem;
+
+    &__title {
+        color: $c-button-orange;
+        font-size: 3rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        text-align: center;
+    }
+
+    &__parrafo {
+        margin: 2rem 0;
+        font-size: 1.8rem;
+        font-weight: 300;
+    }
+
+    &__btn {
+        @include FlexCenter;
+        padding: 1rem 0;
+
+        & .btn {
+            width: 20rem;
+            height: 5rem;
+            @include FlexCenter;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: $c-soft-white;
+            background-color: $c-button-blue;
+            border-radius: .4rem;
+            transition: background-color .3s ease-in-out;
+
+            &:hover {
+                background-color: #0084ffea;
+            }
+        }
+    }
+}

@@ -23,7 +23,7 @@ const ItemListContainer = () => {
                 setTimeout(() => {
                     setData(obtenerDocumentos)
                     setLoading(false)
-                }, 500)
+                }, 400)
 
             } catch ( error ) {
                 setLoading(false)
