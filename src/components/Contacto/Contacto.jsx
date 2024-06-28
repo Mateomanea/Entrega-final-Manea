@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Swal from 'sweetalert2';
 
 const Contacto = () => {
     const [nombre, setNombre] = useState("");
@@ -6,7 +7,6 @@ const Contacto = () => {
     const [telefono, setTelefono] = useState("");
     const [mensaje, setMensaje] = useState("");
     const [error, setError] = useState(null);
-    const [exito, setExito] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -16,13 +16,24 @@ const Contacto = () => {
             return;
         }
 
-        setExito(true);
-        setError(null);
         setNombre("");
         setEmail("");
         setTelefono("");
         setMensaje("");
+
+        setError(null);
+        
+        handleMensajeEnviado();
     };
+
+    const handleMensajeEnviado = () => {
+        Swal.fire({
+            title: 'Enviado',
+            text: 'El mensaje fue enviado',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+    }
 
     return (
         <div className="contacto">
@@ -73,7 +84,6 @@ const Contacto = () => {
 
             </form>
             {error && <p style={{ color: "red" }}>{error}</p>}
-            {exito && <p style={{ color: "green" }}>Mensaje enviado correctamente</p>}
         </div>
     );
 };

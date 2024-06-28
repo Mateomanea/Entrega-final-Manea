@@ -21,12 +21,12 @@ const ItemDetailContainer = () => {
             if (docSnap.exists()) {
                 setItem({ id: docSnap.id, ...docSnap.data() });
             } else {
-                console.log('No existe docmnto');
+                alert('No existe docmnto');
             }
         } catch (error) {
-            console.error('Error al cargarr document: ', error);
+            alert('Error al cargarr document: ', error);
         }
-    };
+        };
     
   
         fetchItem();
