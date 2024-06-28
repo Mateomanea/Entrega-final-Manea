@@ -35,13 +35,13 @@ const Checkout = () => {
                       </div>
 
                       <p className='checkout__priceAmount'>
-                        Total: ${item.price * item.cantidad}
+                        Total: ${(item.price * item.cantidad).toFixed(3)}
                       </p>
                   </li>
                 ))
             )}
             <h3 className='checkout__priceTotal'>
-              Total: ${precioTotal}
+              Total: ${precioTotal.toFixed(3)}
             </h3>
 
             <div className="checkout__btn">
