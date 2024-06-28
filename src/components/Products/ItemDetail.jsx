@@ -1,6 +1,18 @@
 import React from "react"
+import Swal from "sweetalert2";
 
 const ItemDetail = ({item, cantidad, handleCantidad, handleAddToCart}) => {
+
+    const handleAddToCartAlert = () => {
+        handleAddToCart();
+        Swal.fire({
+            icon: "success",
+            title: "Producto agregado con éxito",
+            showConfirmButton: false,
+            timer: 1500,
+        });
+    };
+
     return(
 
         <div className="detail">
@@ -34,7 +46,7 @@ const ItemDetail = ({item, cantidad, handleCantidad, handleAddToCart}) => {
 
             <div className="detail-bottom">
                 <div className="detail__btn">
-                    <button className="btn" onClick={handleAddToCart}>
+                    <button className="btn" onClick={handleAddToCartAlert}>
                         Agregar al carrito
                     </button>
                 </div>

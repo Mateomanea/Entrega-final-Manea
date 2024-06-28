@@ -1,5 +1,6 @@
 import React, { useContext }from 'react'
 import { CartContext } from './CartContex';
+import Swal from 'sweetalert2';
 
 const Checkout = () => {
   const { cart, removerItem } = useContext(CartContext);
@@ -9,6 +10,27 @@ const Checkout = () => {
   }
 
   const precioTotal = cart.reduce((acc, item) => acc + item.price * item.cantidad, 0 );
+
+  const handleCompraAlert = () => {
+    Swal.fire({
+      title: '¡Muchas gracias por su compra!',
+      html: `
+        <div>
+          <h2>Detalles de la compra:</h2>
+          <ul>
+            ${cart.map(item => `
+              <li>
+                <strong>${item.name}</strong> - Cantidad: ${item.cantidad} - Precio total: $${(item.price * item.cantidad).toFixed(3)}
+              </li>
+            `).join('')}
+          </ul>
+          <h3>Total: $${precioTotal.toFixed(3)}</h3>
+        </div>
+      `,
+      icon: 'success',
+      confirmButtonText: 'Cerrar'
+    });
+  };
 
   return (
     <div className="checkout">
@@ -45,7 +67,7 @@ const Checkout = () => {
             </h3>
 
             <div className="checkout__btn">
-              <button className='btn'>
+              <button className='btn' onClick={handleCompraAlert}>
                 Comprar ahora
               </button>
             </div>
