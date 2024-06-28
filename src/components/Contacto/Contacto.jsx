@@ -31,7 +31,7 @@ const Contacto = () => {
             title: 'Enviado',
             text: 'El mensaje fue enviado',
             icon: 'success',
-            confirmButtonText: 'OK'
+            confirmButtonText:  'OK'
         });
     }
 
